@@ -7,12 +7,14 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="manifest" href="site.webmanifest">
+  <!--<link rel="manifest" href="site.webmanifest">-->
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
+  <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/inputs.css">
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -21,11 +23,340 @@
   <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
+<div id="wrapper">
+  <div class="grid-container">
+    <div class="osc-1">
+      <table id="osc-1-control" class="ctrl-layout">
+        <tr>
+          <td colspan="2">
+            <h1>oscillator</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            freq: <input type="range" class="range-sliders"></input>
+          </td>
+          <td width="70">
+            <span id="osc-1-freq">Hz</span>   
+          </td>
+        </tr>
+        <tr>
+          <td>
+            gain: <input type="range" class="range-sliders"></input>
+          </td>
+          <td width="70">
+            <span id="osc-1-gain">Db</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            select a waveform:
+          </td>  
+        </tr>
+        <tr>
+          <td>
+            <input type="select" id="waveselect" list="waveforms"></input>
+            <datalist id="waveforms">
+              <option value="sine">
+              <option value="square">
+              <option value="saw">
+            </datalist>
+          </td>
+          <td>
+            <span id="selected-waveform"></span>  
+          </td>
+        </tr>
+        <tr height="130">
+          <td colspan="2">
+            <div id="screen" class="screen"></div>
+          </td>  
+        </tr>
+        <tr>
+          <td>
+            Note: 
+          </td>
+          <td>
+            <span id="note-1-value">C</span>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              Freq:  
+            </td>
+            <td>
+              <span id="freq-1-value">440</span>
+            </td>
+          </tr>
+      </table>
+    </div><!-- osc-1 -->
+    <div class="osc-2">
+          <table id="osc-2-control" class="ctrl-layout">
+        <tr>
+          <td colspan="2">
+            <h1>oscillator</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            freq: <input type="range" class="range-sliders"></input>
+          </td>
+          <td width="70">
+            <span id="osc-2-freq">Hz</span>   
+          </td>
+        </tr>
+        <tr>
+          <td>
+            gain: <input type="range" class="range-sliders"></input>
+          </td>
+          <td width="70">
+            <span id="osc-2-gain">Db</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            select a waveform:
+          </td>  
+        </tr>
+        <tr>
+          <td>
+            <input type="select" id="waveselect" list="waveforms"></input>
+            <datalist id="waveforms">
+              <option value="sine">
+              <option value="square">
+              <option value="saw">
+            </datalist>
+          </td>
+          <td>
+            <span id="selected-waveform"></span>  
+          </td>
+        </tr>
+        <tr height="130">
+          <td colspan="2">
+            <div id="screen" class="screen"></div>
+          </td>  
+        </tr>
+        <tr>
+            <td>
+              Note: 
+            </td>
+            <td>
+              <span id="note-1-value">C</span>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                Freq:  
+              </td>
+              <td>
+                <span id="freq-1-value">440</span>
+              </td>
+            </tr>
+      </table>
+    </div><!-- osc-2 -->
+    <div class="adsr-1">
+      <table id="adsr-1-control" class="ctrl-layout">
+        <tr>
+          <td colspan="3">
+            <h1>ADSR-1</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>attack: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>
+            <span id="attack-value">0.0</span>  
+          </td>
+        </tr>
+        <tr>
+          <td>decay: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>
+            <span id="decay-value">0.0</span>  
+          </td>
+        </tr>
+        <tr>
+          <td>sustain: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>
+            <span id="sustain-value">0.0</span>  
+          </td>
+        </tr>
+        <tr>
+          <td>release: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>
+            <span id="release-value">0.0</span>  
+          </td>
+        </tr>
+        <tr height="180">
+          <td colspan="3" align="center">
+            <img width="240px" class="adsr-img" src="https://www.researchgate.net/profile/Tellef_Kvifte/publication/270819567/figure/fig22/AS:584465181065238@1516358766474/The-elements-in-an-ADSR-envelope.png"></img>
+          </td>
+        </tr>
+      </table>
+    </div><!-- adsr-1 -->
+    <div class="adsr-2">
+      <table id="adsr-2-control" class="ctrl-layout">
+        <tr>
+          <td colspan="3">
+            <h1>ADSR-2</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>attack: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>
+            <span id="attack-2-value">0.0</span>  
+          </td>
+        </tr>
+        <tr>
+          <td>decay: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>
+            <span id="decay-2-value">0.0</span>  
+          </td>
+        </tr>
+        <tr>
+          <td>sustain: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>
+            <span id="sustain-2-value">0.0</span>  
+          </td>
+        </tr>
+        <tr>
+          <td>release: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>
+            <span id="release-2-value">0.0</span>  
+          </td>
+        </tr>
+        <tr height="180">
+          <td colspan="3" align="center">
+            <img width="240px" class="adsr-img" src="https://www.researchgate.net/profile/Tellef_Kvifte/publication/270819567/figure/fig22/AS:584465181065238@1516358766474/The-elements-in-an-ADSR-envelope.png"></img>
+          </td>
+        </tr>
+      </table>
+    </div><!-- adsr-2 -->
+    <div class="sequencer">
+      <table id="seq-controls" class="ctrl-layout">
+        <tr>
+          <td colspan="8">
+            <h1>sequencer</h1>
+          </td>
+        </tr>
+        <tr align="center">
+          <td><input type="radio"></input></td>
+          <td><input type="radio"></input></td>
+          <td><input type="radio"></input></td>
+          <td><input type="radio"></input></td>
+          <td><input type="radio"></input></td>
+          <td><input type="radio"></input></td>
+          <td><input type="radio"></input></td>
+          <td><input type="radio"></input></td>
+        </tr>
+        <tr align="center">
+          <td><input type="range" orient="vertical" class="vertical-range"></input></td>
+          <td><input type="range" orient="vertical" class="vertical-range"></input></td>
+          <td><input type="range" orient="vertical" class="vertical-range"></input></td>
+          <td><input type="range" orient="vertical" class="vertical-range"></input></td>
+          <td><input type="range" orient="vertical" class="vertical-range"></input></td>
+          <td><input type="range" orient="vertical" class="vertical-range"></input></td>
+          <td><input type="range" orient="vertical" class="vertical-range"></input></td>
+          <td><input type="range" orient="vertical" class="vertical-range"></input></td>
+        </tr>
+        <tr align="center">
+          <td>C</td>
+          <td>C</td>
+          <td>C</td>
+          <td>C</td>
+          <td>C</td>
+          <td>C</td>
+          <td>C</td>
+          <td>C</td>
+        </tr>
+      </table> 
+    </div><!-- sequencer -->
+    <div class="effects">
+      <table id="effects" class="ctrl-layout">
+        <tr>
+          <td colspan="3">
+            <h1>effects</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>chorus: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>reverb: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>dist: </td>
+          <td>
+            <input type="range" class="range-sliders"></input>
+          </td>
+          <td>0.0</td>
+        </tr>
+      </table>  
+    </div><!-- effects -->
+    <div class="master">
+      <table id="master" class="ctrl-layout">
+        <tr>
+          <td colspan="4"><h1>master</h1></td>
+        <tr>
+        <tr>
+          <td>L</td>
+          <td>
+            <input type="range" class="vertical-range"></input>
+          </td>
+          <td>
+            <input type="range" class="vertical-range"></input>
+          </td>
+          <td>R</td>
+        <tr>
+          <tr>
+          <td>vol: </td>
+          <td colspan="2">
+            <input type="range" class="range-sliders"></input>
+            </td>
+          <td>0.0</td>
+        <tr>
+      </table>  
+    </div><!-- master -->
+  </div><!-- grid-container -->
+</div><!-- wrapper -->
 
   <!-- Add your site or application content here -->
   <p>Hello world! This is HTML5 Boilerplate.</p>
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+  </script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>

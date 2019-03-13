@@ -96,21 +96,117 @@ textarea {
  /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+   html, body, .grid-container { height: 100%; margin: 0; 
+    font-family: 'Audiowide';
+      font-size: 12px;
+    }
+    
+    h1 {
+      font-family: 'Audiowide';
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .vertical-range {
+      -webkit-appearance: slider-vertical;
+      margin: 0;
+      padding: 0;
+      width: 0px;
+      height: 80px;
+      border: 1px solid #000;
+    }
 
+    .vertical-range::-webkit-slider-thumb {
+        -webkit-appearance: slider-vertical;
+        margin: 0;
+        padding: 0;
+        width: 10px;
+        height: 10px;
+        box-shadow: 1.6px 1.6px 2.5px #200031, 0px 0px 1.6px #31004b;
+        border: 1.4px solid #000000;
+        border-radius: 9px;
+        background: #ffffff;
+        cursor: pointer;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+    
+    .grid-container * { 
+     /* debug border: 1px solid red;*/
+     position: relative;
+    }
+    
+    /*.grid-container *:after { 
+     content:attr(class);
+     position: absolute;
+     top: 0;
+     left: 0;
+    }*/
+    
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 0.2fr 1.8fr;
+      grid-template-areas: "osc-1 osc-2 adsr-1 adsr-2" "osc-1 osc-2 adsr-1 adsr-2" "sequencer sequencer effects master";
+    }
+    
+    .osc-1 {
+      grid-area: osc-1;
+      min-width: 256px;
+      min-height: 500px;
+    }
+    
+    .osc-2 {
+      grid-area: osc-2;
+      min-width: 256px;
+      min-height: 500px;
+    }
+    
+    .adsr-1 {
+      grid-area: adsr-1;
+      min-width: 256px;
+      min-height: 500px;
+    }
+    
+    .adsr-2 {
+      grid-area: adsr-2;
+      min-width: 256px;
+      min-height: 500px;
+    }
+    
+    .sequencer {
+      grid-area: sequencer; 
+      min-width: 512px;
+    }
+    
+    .effects {
+      grid-area: effects;
+      min-width: 256px;
+    }
+    
+    .master {
+      grid-area: master;
+      min-width: 256px;
+    }
+    
+    table.ctrl-layout { 
+      width: 95%;
+      margin: auto;
+    }
+    
+    #screen {
+        float: left;
+        margin: auto;
+        margin-top: 20px; 
+        height: 130px;
+        width: 190px;
+        border-radius: 12px;
+        background-color: #000;
+    }
 
  /* ==========================================================================
    Helper classes
