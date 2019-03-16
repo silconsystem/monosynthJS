@@ -67,16 +67,23 @@ var hzSrcnOne =  document.getElementById('freq-1-value');
 var hertzTwo = document.getElementById('osc-2-freq');
 var hzSrcnTwo = document.getElementById('freq-2-value');
 
+var frequencyOne,
+	frequencyTwo;
+
 oscOneFreq.oninput = function() {
 	hertzOne.innerHTML = stdTuningFreq[this.value];
 	hzSrcnOne.innerHTML = stdTuningFreq[this.value];
 	noteOne.innerHTML = stdTuningNotes[this.value];
+	frequencyOne = stdTuningFreq[this.value];
+	console.log(frequencyOne);
 }
 oscOneFreq.oninput();
 oscTwoFreq.oninput = function() {
 	hertzTwo.innerHTML = stdTuningFreq[this.value];
 	hzSrcnTwo.innerHTML = stdTuningFreq[this.value];
 	noteTwo.innerHTML = stdTuningNotes[this.value];
+	frequencyTwo = stdTuningFreq[this.value];
+	console.log(frequencyTwo);
 }
 oscTwoFreq.oninput();
 
