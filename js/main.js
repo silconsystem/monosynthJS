@@ -53,6 +53,15 @@ waveSelectTwo.onchange = function() {
 var oscOneFreq = document.getElementById('osc-1-freq-input');
 var oscTwoFreq = document.getElementById('osc-2-freq-input');
 
+var noteOne = document.getElementById('note-1-value');
+var noteTwo = document.getElementById('note-2-value');
+
+var oscOneGain = document.getElementById('osc-1-gain-input');
+var oscTwoGain = document.getElementById('osc-2-gain-input');
+
+var gainOne = document.getElementById('osc-1-gain');
+var gainTwo = document.getElementById('osc-2-gain');
+
 var hertzOne = document.getElementById('osc-1-freq')
 var hzSrcnOne =  document.getElementById('freq-1-value');
 var hertzTwo = document.getElementById('osc-2-freq');
@@ -61,10 +70,21 @@ var hzSrcnTwo = document.getElementById('freq-2-value');
 oscOneFreq.oninput = function() {
 	hertzOne.innerHTML = stdTuningFreq[this.value];
 	hzSrcnOne.innerHTML = stdTuningFreq[this.value];
+	noteOne.innerHTML = stdTuningNotes[this.value];
 }
 oscOneFreq.oninput();
 oscTwoFreq.oninput = function() {
 	hertzTwo.innerHTML = stdTuningFreq[this.value];
 	hzSrcnTwo.innerHTML = stdTuningFreq[this.value];
+	noteTwo.innerHTML = stdTuningNotes[this.value];
 }
 oscTwoFreq.oninput();
+
+oscOneGain.oninput = function() {
+	gainOne.innerHTML = oscOneGain.value;
+}
+oscOneGain.oninput();
+oscTwoGain.oninput = function() {
+	gainTwo.innerHTML = oscTwoGain.value;
+}
+oscTwoGain.oninput();
