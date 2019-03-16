@@ -1,8 +1,6 @@
 /** 			oscillators.js
 	**/
 /**				 Globals				**/
-// tuning data
-var stdTuning 		= JSON.parse(JSON.stringify(standardTuning);
 
 // control elements
 var startButton 	= document.getElementById('start');

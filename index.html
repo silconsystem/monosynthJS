@@ -56,7 +56,7 @@
         </tr>
         <tr>
           <td>
-            <input type="select" id="waveselect" list="waveforms"></input>
+            <input type="select" id="osc-1-waveselect" list="waveforms"></input>
             <datalist id="waveforms">
               <option value="sine">
               <option value="square">
@@ -64,12 +64,14 @@
             </datalist>
           </td>
           <td>
-            <span id="selected-waveform"></span>  
+            <span id="osc-1-selected-waveform"></span>  
           </td>
         </tr>
         <tr height="130">
           <td colspan="2">
-            <div id="screen" class="screen"></div>
+            <div id="screen" class="screen">
+              <canvas id="graphic-one"></canvas>
+            </div>
           </td>  
         </tr>
         <tr><td colspan="2"><hr class="styled-hr"></td></tr>
@@ -121,7 +123,7 @@
         </tr>
         <tr>
           <td>
-            <input type="select" id="waveselect" list="waveforms"></input>
+            <input type="select" id="osc-2-waveselect" list="waveforms"></input>
             <datalist id="waveforms">
               <option value="sine">
               <option value="square">
@@ -129,7 +131,7 @@
             </datalist>
           </td>
           <td>
-            <span id="selected-waveform"></span>  
+            <span id="osc-2-selected-waveform"></span>  
           </td>
         </tr>
         <tr height="130">
@@ -381,6 +383,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.2/Tone.min.js"></script>
   <!-- JSON tuning files -->
   <script src="js/note-frequencies-440.json"></script>
+  <script src="js/note-frequencies-432.json"></script>
+  <!-- load my scripts -->
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
   <script src="js/oscillators.js"></script>
