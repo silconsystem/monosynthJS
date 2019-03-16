@@ -1,0 +1,6 @@
+.customize .p3 path {
+  fill: #F1DB42;
+}
+.p3 path {
+            filter: url(#inner-shadow)
+        }

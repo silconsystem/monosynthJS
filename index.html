@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/inputs.css">
+  <link rel="stylesheet" href="css/control-styles.css">
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -34,7 +35,7 @@
         </tr>
         <tr>
           <td>
-            freq: <input type="range" class="range-sliders"></input>
+            freq: <input id="osc-1-freq-input" type="range" class="range-sliders"></input>
           </td>
           <td width="70">
             <span id="osc-1-freq">Hz</span>   
@@ -42,7 +43,7 @@
         </tr>
         <tr>
           <td>
-            gain: <input type="range" class="range-sliders"></input>
+            gain: <input id="osc-1-gain-input" type="range" class="range-sliders"></input>
           </td>
           <td width="70">
             <span id="osc-1-gain">Db</span>
@@ -71,6 +72,7 @@
             <div id="screen" class="screen"></div>
           </td>  
         </tr>
+        <tr><td colspan="2"><hr class="styled-hr"></td></tr>
         <tr>
           <td>
             Note: 
@@ -135,6 +137,7 @@
             <div id="screen" class="screen"></div>
           </td>  
         </tr>
+        <tr><td colspan="2"><hr class="styled-hr"></td></tr>
         <tr>
             <td>
               Note: 
@@ -260,6 +263,20 @@
             <h1>sequencer</h1>
           </td>
         </tr>
+
+        <tr>
+          <td colspan="8">
+            <button id="start" class="btn-ctrl">start</button>
+            <button id="stop" class="btn-ctrl">stop</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="8">
+            <hr class="styled-hr">
+          </td>
+        </tr>
+          </td>
+        </tr>
         <tr align="center">
           <td><input type="radio"></input></td>
           <td><input type="radio"></input></td>
@@ -352,14 +369,21 @@
   <!-- Add your site or application content here -->
   <p>Hello world! This is HTML5 Boilerplate.</p>
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <!-- Do I really need GayQueery?? I dunno yet
   <script
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous">
   </script>
+  -->
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <!--<script src="js/require.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.2/Tone.min.js"></script>
+  <!-- JSON tuning files -->
+  <script src="js/note-frequencies-440.json"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/oscillators.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>

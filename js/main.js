@@ -1,3 +1,5 @@
+/** 			main.js
+	**/
 var waveSelect = document.getElementById('waveselect');
 
 waveSelect.oninput = function() {
