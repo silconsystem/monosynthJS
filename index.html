@@ -17,6 +17,11 @@
   <link rel="stylesheet" href="css/inputs.css">
   <link rel="stylesheet" href="css/control-styles.css">
 
+  <!-- jQuery UI 
+  <link rel="stylesheet" href="libs/jquery-ui.css">
+  <link rel="stylesheet" href="libs/jquery-ui.structure.min.css">
+  <link rel="stylesheet" href="libs/jquery-ui.theme.css">
+  -->
   <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -35,7 +40,7 @@
         </tr>
         <tr>
           <td>
-            freq: <input id="osc-1-freq-input" type="range" class="range-sliders"></input>
+            freq: <input id="osc-1-freq-input" type="range" class="range-sliders" min="0" value="0" step="1"></input>
           </td>
           <td width="70">
             <span id="osc-1-freq">Hz</span>   
@@ -102,7 +107,7 @@
         </tr>
         <tr>
           <td>
-            freq: <input type="range" class="range-sliders"></input>
+            freq: <input id="osc-2-freq-input" type="range" class="range-sliders" min="0" value="0" step="1"></input>
           </td>
           <td width="70">
             <span id="osc-2-freq">Hz</span>   
@@ -110,7 +115,7 @@
         </tr>
         <tr>
           <td>
-            gain: <input type="range" class="range-sliders"></input>
+            gain: <input id="osc-2-gain-input" type="range" class="range-sliders"></input>
           </td>
           <td width="70">
             <span id="osc-2-gain">Db</span>
@@ -145,7 +150,7 @@
               Note: 
             </td>
             <td>
-              <span id="note-1-value">C</span>
+              <span id="note-2-value">C</span>
             </td>
           </tr>
           <tr>
@@ -153,7 +158,7 @@
                 Freq:  
               </td>
               <td>
-                <span id="freq-1-value">440</span>
+                <span id="freq-2-value">440</span>
               </td>
             </tr>
       </table>
@@ -377,9 +382,9 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous">
   </script>
-  -->
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-  <!--<script src="js/require.js"></script>-->
+   
+  <script src="libs/jquery-ui.js"></script>
+  <script src="js/require.js"></script>-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.2/Tone.min.js"></script>
   <!-- JSON tuning files -->
   <script src="js/note-frequencies-440.json"></script>
