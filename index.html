@@ -299,14 +299,14 @@
           </td>
         </tr>
         <tr align="center">
-          <td class="seq-cells" width="64"><input type="radio" id="seq-radio-0" class="seq-radio-btn"></input></td>
-          <td class="seq-cells" width="64"><input type="radio" id="seq-radio-1" class="seq-radio-btn"></input></td>
-          <td class="seq-cells" width="64"><input type="radio" id="seq-radio-2" class="seq-radio-btn"></input></td>
-          <td class="seq-cells" width="64"><input type="radio" id="seq-radio-3" class="seq-radio-btn"></input></td>
-          <td class="seq-cells" width="64"><input type="radio" id="seq-radio-4" class="seq-radio-btn"></input></td>
-          <td class="seq-cells" width="64"><input type="radio" id="seq-radio-5" class="seq-radio-btn"></input></td>
-          <td class="seq-cells" width="64"><input type="radio" id="seq-radio-6" class="seq-radio-btn"></input></td>
-          <td class="seq-cells" width="64"><input type="radio" id="seq-radio-7" class="seq-radio-btn"></input></td>
+          <td class="seq-cells" width="64"><input type="checkbox" id="seq-radio-0" class="seq-check-btn"></input></td>
+          <td class="seq-cells" width="64"><input type="checkbox" id="seq-radio-1" class="seq-check-btn"></input></td>
+          <td class="seq-cells" width="64"><input type="checkbox" id="seq-radio-2" class="seq-check-btn"></input></td>
+          <td class="seq-cells" width="64"><input type="checkbox" id="seq-radio-3" class="seq-check-btn"></input></td>
+          <td class="seq-cells" width="64"><input type="checkbox" id="seq-radio-4" class="seq-check-btn"></input></td>
+          <td class="seq-cells" width="64"><input type="checkbox" id="seq-radio-5" class="seq-check-btn"></input></td>
+          <td class="seq-cells" width="64"><input type="checkbox" id="seq-radio-6" class="seq-check-btn"></input></td>
+          <td class="seq-cells" width="64"><input type="checkbox" id="seq-radio-7" class="seq-check-btn"></input></td>
         </tr>
         <tr align="center">
           <td class="seq-cells" width="64">
@@ -358,6 +358,15 @@
           </td>
           <td class="seq-cells" width="64">
             <span id="seq-note-7" class="seq-note"></span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">octave: </td>
+          <td colspan="4">
+            <input type="range" id="oct-range" class="range-sliders" min="1" max="8" value="2" step="1">
+          </td>
+          <td colspan="2" align="center">
+            <span id="oct-selected"></span>
           </td>
         </tr>
       </table> 
