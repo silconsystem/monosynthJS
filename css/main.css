@@ -203,6 +203,11 @@ textarea {
       width: 95%;
       margin: auto;
     }
+
+    table#seq-controls {
+      table-layout: fixed;
+      width: 512px;
+    }
     
     #screen {
         float: left;
