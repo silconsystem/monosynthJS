@@ -5,6 +5,7 @@
 // control elements
 var startButton 	= document.getElementById('start');
 var stopButton 		= document.getElementById('stop');
+var resetButton		= document.getElementById('reset');
 var bpmSlider 		= document.getElementById('tempo-slider');
 
 // note selection sliders 
@@ -18,16 +19,28 @@ var ids 			= Array.prototype.map.call(noteSliders, function(element) {
 var octSlider 		= document.getElementById('oct-range');
 
 // note on/off checkboxes
-var onOff 			= [];
-var chkBoxes 		= document.querySelectorAll('.seq-check-btn');
+var boxOnOff 		= [];
+var noteArray		= [];
 
-// loop through checkboxes
-for (var i in chkBoxes.length) {
-	if (chkBoxes.checked == true) {
-		onOff.push(chkBoxes[i].value);
+var chkBoxes 		= document.getElementsByClassName('seq-check-btn');
+
+function checkSeqInputs() {
+	// loop through checkboxes
+	for (var i = 0; i < chkBoxes.length; i++) {
+  		if (chkBoxes[i].type == "checkbox") {
+    		boxOnOff.push(chkBoxes[i].checked);
+    	}
+    	getValues(noteSliders[i]);
+    	noteArray.push(freqVal);
 	}
-	console.log(onOff);
+	console.log("note freq: " + noteArray);
+    console.log("note I/O: " + boxOnOff);
+
+    noteArray = [];
+    boxOnOff = [];
 }
+
+
 
 // output span
 var bpmOutput 		= document.getElementById('tempo');
@@ -53,10 +66,28 @@ startButton.onclick = function() {
 	//				pass it in our array
 	// 
 	//oscOne.start();
+	checkSeqInputs();
 }
 stopButton.onclick = function() {
 	//oscOne.stop();
 }
+
+// reset button
+resetButton.onclick = function() {
+	octSlider.value 	= 2;
+	octOutput.innerHTML = octSlider.value;
+	bpmSlider.value 	= 120;
+	bpmOutput.innerHTML = bpmSlider.value;
+
+	for (i = 0; i < chkBoxes.length; i++) {
+		chkBoxes[i].checked	 = false;
+	}
+	for (i = 0; i < noteSliders.length; i++) {
+		noteSliders[i].value = 6;
+		seqNote[i].innerHTML = noteSliders[i].list.options[noteSliders[i].value].value;
+	}
+}
+resetButton.onclick();
 
 // controller functions
 bpmSlider.oninput = function() {
@@ -76,10 +107,11 @@ octSlider.oninput();
 function getFrequency() {
 	var i;
 	for (i = 0; i < stdTuning.length; i++) {
-		if (noteOctSelected == stdTuning[i].Note) {
+		if (noteOctSelected.substring(0, 3) == stdTuning[i].Note.substring(0, 3)) {
 			freqVal = stdTuning[i].Frequency;
 		}
 	}
+	console.log(freqVal);
 }
 
 function getValues(self) {
@@ -95,5 +127,4 @@ function getValues(self) {
 	console.log(noteOctSelected);
 
 	getFrequency();
-	console.log(freqVal);
 }
