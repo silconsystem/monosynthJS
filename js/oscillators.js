@@ -1,9 +1,26 @@
 /** 			oscillators.js
 	**/
 /**				 Globals				**/
-// range input for osc one
+// inputs for osc one
 var oscOneReset = document.getElementById('osc-1-reset');
 var oscTwoReset = document.getElementById('osc-2-reset');
+
+var oscOneToggle = document.getElementById('osc-1-toggle');
+var oscTwoToggle = document.getElementById('osc-2-toggle');
+
+var osc_state,
+	osc_id;
+
+function oscOnOff(self) {
+	var id = self.id;
+	osc_id = id.replace(/^[^\d]*/,"").replace(/[^\d]*$/,"");;
+	if (oscOneToggle.checked || oscTwoToggle.checked) {
+		osc_state = true;
+	} else {
+		osc_state = false;
+	}
+	console.log("osc " + osc_id + "\nosc state: " + osc_state)
+}
 
 // 	waveform selectors
 var waveSelectOne = document.getElementById('osc-1-waveselect');
