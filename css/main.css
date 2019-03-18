@@ -112,7 +112,22 @@ textarea {
       background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0 0;
         border: 0;
     }
+
+    .osc-toggle {
+      margin-right: 20px;
+    }
     
+    #osc-1-reset,
+    #osc-2-reset {
+      display: inline;
+      float: left;
+    }
+    #osc-1-toggle,
+    #osc-2-toggle {
+      display: inline;
+      float: right;
+    }
+
     .vertical-range {
       -webkit-appearance: slider-vertical;
       margin: 0;
