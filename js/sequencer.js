@@ -65,24 +65,38 @@ startButton.onclick = function() {
 	//				return frequency of given note,
 	//				pass it in our array
 	// 
-	checkSeqInputs();
-
+	//checkSeqInputs();
 	if (osc_1_state == true) {
 		oscOne.start();
-		console.log("osc-1 started");
-	} else if (osc_1_state == false) {		
-		console.log("can't start osc-1, toggle is off");
+		oscillatorOne();
+		console.log("osc-1 start");
+	} else if (osc_1_state == false) {
+		oscOne.stop();
+		console.log("osc-1 stopped");
 	}
+
 	if (osc_2_state == true) {
 		oscTwo.start();
-		console.log("osc-2 started");
-	} else if (osc_2_state == false) {		
-		console.log("can't start osc-2, toggle is off");
+		console.log("osc-2 start");
+	} else if (osc_2_state == false) {
+		oscTwo.stop();
+		console.log("osc-2 stopped");
 	}
 }
 stopButton.onclick = function() {
-	oscOne.stop();
-	oscTwo.stop();
+	if (osc_1_state == true) {
+		oscOne.stop();
+		oscOneToggle.checked = false;
+		osc_1_state = false;
+		console.log("osc-1 stopped");
+
+	}
+	if (osc_2_state == true) {
+		oscTwo.stop();
+		oscTwoToggle.checked = false;
+		osc_2_state = false;
+		console.log("osc-2 stopped");
+	}
 }
 
 // reset button
