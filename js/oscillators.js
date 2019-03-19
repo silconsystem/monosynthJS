@@ -13,7 +13,7 @@ var osc_state,
 
 function oscOnOff(self) {
 	var id = self.id;
-	osc_id = id.replace(/^[^\d]*/,"").replace(/[^\d]*$/,"");;
+	osc_id = id.replace(/^[^\d]*/,"").replace(/[^\d]*$/,"");
 	if (oscOneToggle.checked || oscTwoToggle.checked) {
 		osc_state = true;
 	} else {
