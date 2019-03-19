@@ -12,6 +12,40 @@ var pythaTuningNotes	= [];
 var pythaTuningFreq		= [];
 var i, j;
 
+// panning, volume control
+var leftChan 			= document.getElementById('left-vol');
+var rightChan 			= document.getElementById('right-vol');
+var masterVol			= document.getElementById('master-vol');
+
+var volumeSpan			= document.getElementById('master-gain-channel');
+var leftSpan			= document.getElementById('vol-left-out');
+var rightSpan			= document.getElementById('vol-right-out');
+
+var volLeft,
+	volRight,
+	masterGain;
+
+masterVol.onchange = function() {
+	masterGain = masterVol.value;
+	volumeSpan.innerHTML = masterVol.value;
+	console.log("masterGain: " + masterGain);
+}
+masterVol.onchange();
+
+leftChan.onchange = function() {
+	volLeft = leftChan.value;
+	leftSpan.innerHTML = leftChan.value;
+	console.log("left-vol: " + volLeft);
+}
+leftChan.onchange();
+
+rightChan.onchange = function() {
+	rightVol = rightChan.value;
+	rightSpan.innerHTML = rightChan.value;
+	console.log("right-vol: " + rightVol);
+}
+rightChan.onchange();
+
 for (i = 0, j = 0; i <= stdTuning.length - 1, j <= pythaTuning.length -1; i++, j++) {
 	// add note and Frequency values from our JSON objects
 	// 440 Hz tuning

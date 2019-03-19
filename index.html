@@ -413,48 +413,69 @@
         <tr>
           <td>chorus: </td>
           <td>
-            <input type="range" class="range-sliders"></input>
+            <input type="range" id="fx-chorus-0" class="range-sliders" min="0.00" max="1.00" value="0.00" step="0.01" onchange="showValue(this);"></input>
           </td>
-          <td>0.0</td>
+          <td>
+            <span class="fx-span">0.0</span>
+          </td>
         </tr>
         <tr>
           <td>reverb: </td>
           <td>
-            <input type="range" class="range-sliders"></input>
+            <input type="range" id="fx-reverb-0" class="range-sliders" min="0.00" max="1.00" value="0.00" step="0.01" onchange="showValue(this);"></input>
           </td>
-          <td>0.0</td>
+          <td>
+            <span class="fx-span">0.0</span>
+          </td>
         </tr>
         <tr>
           <td>dist: </td>
           <td>
-            <input type="range" class="range-sliders"></input>
+            <input type="range" id="fx-distortion-0" class="range-sliders" min="0.00" max="1.00" value="0.00" step="0.01" onchange="showValue(this);"></input>
           </td>
-          <td>0.0</td>
+          <td>
+            <span class="fx-span">0.0</span>
+          </td>
         </tr>
       </table>  
     </div><!-- effects -->
     <div class="master">
       <table id="master" class="ctrl-layout">
         <tr>
-          <td colspan="4"><h1>master</h1></td>
+          <td colspan="4">
+            <h1>master</h1>
+          </td>
+        </tr>
         <tr>
+          <td>
+            <span id="vol-left-out">0.0</span>
+          </td>
+          <td colspan="2"></td>
+          <td>
+            <span id="vol-right-out">0.0</span>
+          </td>
+        </tr>
         <tr align="center">
           <td>L</td>
           <td>
-            <input type="range" orient="vertical" class="volume-vertical-range"></input>
+            <input type="range" id="left-vol" orient="vertical" min="0.0" max="1.0" value="0.8" step="0.1" class="volume-vertical-range"></input>
           </td>
           <td>
-            <input type="range" orient="vertical" class="volume-vertical-range"></input>
+            <input type="range" id="right-vol" orient="vertical" min="0.0" max="1.0" value="0.8" step="0.1" class="volume-vertical-range"></input>
           </td>
           <td>R</td>
+        </tr>
         <tr>
-          <tr>
-          <td>vol: </td>
+          <td>
+          vol: 
+          </td>
           <td colspan="2">
-            <input type="range" class="range-sliders"></input>
-            </td>
-          <td>0.0</td>
-        <tr>
+            <input type="range" id="master-vol" class="range-sliders" min="0.0" max="1.0" value="0.6" step="0.1"></input>
+          </td>
+          <td>
+            <span id="master-gain-channel"></span>
+          </td>
+        </tr>
       </table>  
     </div><!-- master -->
   </div><!-- grid-container -->

@@ -13,8 +13,14 @@ var attackTwoVal,
 	sustainTwoVal,
 	releaseTwoVal;
 
+var fxChorus,
+	fxReverb,
+	fxDistortion;
+
 var adsrOneSpans	= document.getElementById('adsr-1-control').getElementsByClassName('adsr-span');
 var adsrTwoSpans	= document.getElementById('adsr-2-control').getElementsByClassName('adsr-span');
+
+var fxSpans			= document.getElementById('effects').getElementsByClassName('fx-span');
 
 // show slider value
 function showValue(self) {
@@ -23,6 +29,20 @@ function showValue(self) {
 	var id_str	= self.id;
 	id_num 		= id_num.replace(/^[^\d]*/,"").replace(/[^\d]*$/,"");
 	id_str 		= id_str;
+
+	if (id_num == 0 && id_str.match(/chorus/g)) {
+		fxSpans[0].innerHTML = value;
+		fxChorus = value;
+		console.log("chorus: " + fxChorus);
+	} else if (id_num == 0 && id_str.match(/reverb/g)) {
+		fxSpans[1].innerHTML = value;
+		fxReverb = value;
+		console.log("reverb: " + fxReverb);
+	} else if (id_num == 0 && id_str.match(/distortion/g)) {
+		fxSpans[2].innerHTML = value;
+		fxDistortion = value;
+		console.log("distortion: " + fxDistortion);
+	}
 
 	if (id_num == 1 && id_str.match(/attack/g)) {
 		adsrOneSpans[0].innerHTML = value;
