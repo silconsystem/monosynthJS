@@ -1,6 +1,12 @@
 /** 			oscillators.js
 	**/
 /**				 Globals				**/
+/** create Oscillator node 															***OSCILLATOR***
+var vcoOne 		= audioCtx.createOscillator();
+var vcoTwo 		= audioCtx.createOscillator();
+var vca 		= audioCtx.createGain();
+var masterMix	= audioCtx.createGain(); 
+**/
 // inputs for osc one
 var oscOneReset = document.getElementById('osc-1-reset');
 var oscTwoReset = document.getElementById('osc-2-reset');
@@ -8,18 +14,31 @@ var oscTwoReset = document.getElementById('osc-2-reset');
 var oscOneToggle = document.getElementById('osc-1-toggle');
 var oscTwoToggle = document.getElementById('osc-2-toggle');
 
-var osc_state,
-	osc_id;
+var osc_1_state, osc_2_state = false;
+	
+var	osc_id = 0;
 
 function oscOnOff(self) {
 	var id = self.id;
 	osc_id = id.replace(/^[^\d]*/,"").replace(/[^\d]*$/,"");
-	if (oscOneToggle.checked || oscTwoToggle.checked) {
-		osc_state = true;
-	} else {
-		osc_state = false;
+
+	if (oscOneToggle.checked) {
+		osc_1_state = true;
+		console.log(osc_1_state.value);
 	}
-	console.log("osc " + osc_id + "\nosc state: " + osc_state)
+	if (!oscOneToggle.checked) {
+		osc_1_state = false;
+		console.log(osc_1_state.value);
+	} 
+	if (oscTwoToggle.checked) {
+		osc_2_state = true;
+		console.log(osc_2_state.value);
+	}
+	if (!oscTwoToggle.checked) {
+		osc_2_state = false;
+		console.log(osc_2_state.value);
+	}
+	console.log("osc " + osc_id + "\nosc-1 state: " + osc_1_state + "\nosc-2 state: " + osc_2_state);
 }
 
 // 	waveform selectors

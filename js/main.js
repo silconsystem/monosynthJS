@@ -2,6 +2,10 @@
 	**/
 /**								--- GLOBALS ---
 				**/
+// create web audio api AudioContext 
+//window.AudioContext = window.AudioContext || window.webkitAudioContext;
+//var audioCtx = new AudioContext();
+				
 // tuning data
 var stdTuning 			= JSON.parse(JSON.stringify(standardTuning));
 var pythaTuning			= JSON.parse(JSON.stringify(pythagoreanTuning));
