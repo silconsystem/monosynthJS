@@ -27,17 +27,16 @@ var chkBoxes 		= document.getElementsByClassName('seq-check-btn');
 function checkSeqInputs() {
 	// loop through checkboxes
 	for (var i = 0; i < chkBoxes.length; i++) {
+		// push to array
   		if (chkBoxes[i].type == "checkbox") {
-    		boxOnOff.push(chkBoxes[i].checked);
+			boxOnOff.push(chkBoxes[i].checked);
     	}
     	getValues(noteSliders[i]);
-    	noteArray.push(freqVal);
+		noteArray.push(freqVal);
 	}
 	console.log("note freq: " + noteArray);
     console.log("note I/O: " + boxOnOff);
-
-    noteArray = [];
-    boxOnOff = [];
+    
 }
 
 
@@ -65,18 +64,26 @@ startButton.onclick = function() {
 	//				return frequency of given note,
 	//				pass it in our array
 	// 
-	//checkSeqInputs();
+
 	if (osc_1_state == true) {
-		oscOne.start();
-		oscillatorOne();
+		checkSeqInputs();
+		oscillatorInputs();
+		var pattern = new Tone.Pattern(function(time, note){
+			oscOne.triggerAttackRelease(note, 0.25);
+		}, noteArray);
+
+		pattern.start(0);
+		Tone.Transport.start();
 		console.log("osc-1 start");
 	} else if (osc_1_state == false) {
-		oscOne.stop();
+		pattern.stop();
+		Tone.Transport.stop();
 		console.log("osc-1 stopped");
 	}
 
 	if (osc_2_state == true) {
 		oscTwo.start();
+		oscillatorInputs();
 		console.log("osc-2 start");
 	} else if (osc_2_state == false) {
 		oscTwo.stop();
@@ -84,8 +91,12 @@ startButton.onclick = function() {
 	}
 }
 stopButton.onclick = function() {
-	if (osc_1_state == true) {
-		oscOne.stop();
+
+	//noteArray 	= [];
+	//chkBoxes 	= [];
+
+	if (osc_1_state == true) {	
+		Tone.Transport.stop();
 		oscOneToggle.checked = false;
 		osc_1_state = false;
 		console.log("osc-1 stopped");
@@ -118,14 +129,14 @@ resetButton.onclick();
 
 // controller functions
 bpmSlider.oninput = function() {
-	bpmVal = bpmSlider.value;
+	bpmVal 				= bpmSlider.value;
 	bpmOutput.innerHTML = bpmVal;
 	console.log(bpmVal);
 }
 bpmSlider.oninput();
 
 octSlider.oninput = function() {
-	octSelected = octSlider.value;
+	octSelected 		= octSlider.value;
 	octOutput.innerHTML = octSelected;
 	console.log(octSelected);
 }
@@ -144,13 +155,13 @@ function getFrequency() {
 function getValues(self) {
 	var noteSlID = self.id;
 	// remove all the text and keep the number as index
-	noteID = noteSlID.replace( /^\D+/g, '');
-	noteSlVal = self.value;
+	noteID 		= noteSlID.replace( /^\D+/g, '');
+	noteSlVal 	= self.value;
 	console.log(noteSlID + " values: " + noteSlVal + "\n" + noteID);
 
-	noteSelected = noteSliders[noteID].list.options[noteSlVal].value;
-	seqNote[noteID].innerHTML = noteSliders[noteID].list.options[noteSlVal].value;
-	noteOctSelected = noteSelected + octSelected;
+	noteSelected 				= noteSliders[noteID].list.options[noteSlVal].value;
+	seqNote[noteID].innerHTML 	= noteSliders[noteID].list.options[noteSlVal].value;
+	noteOctSelected 			= noteSelected + octSelected;
 	console.log(noteOctSelected);
 
 	getFrequency();

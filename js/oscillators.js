@@ -158,20 +158,16 @@ wavOneDisplay.innerHTML = waveTypeOne;
 wavTwoDisplay.innerHTML = waveTypeTwo;
 
 // the two oscillators
-function oscillatorOne() {
+function oscillatorInputs() {
 
 	oscOne.type 			= waveTypeOne;
 	oscOne.frequency.value 	= frequencyOne;
 	oscOne.volume.value 	= gainOneVal;
+
+	oscTwo.type				= waveTypeTwo;
+	oscTwo.frequency.value	= frequencyTwo;
+	oscTwo.volume.value		= gainTwoVal;
 }
 
-var oscOne = new Tone.Oscillator({
-	"type" : "sine",
-	"frequency" : 440,
-	"volume" : -16
-}).toMaster();
-var oscTwo = new Tone.Oscillator({
-	"type" : "sine",
-	"frequency" : 440,
-	"volume" : -16
-}).toMaster();
+var oscOne = new Tone.Synth().toMaster();
+var oscTwo = new Tone.Synth().toMaster();
