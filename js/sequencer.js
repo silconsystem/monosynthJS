@@ -25,20 +25,27 @@ var noteArray		= [];
 var chkBoxes 		= document.getElementsByClassName('seq-check-btn');
 
 function checkSeqInputs() {
+	var i;
 	// loop through checkboxes
-	for (var i = 0; i < chkBoxes.length; i++) {
+	for (i = 0; i < chkBoxes.length; i++) {
 		// push to array
   		if (chkBoxes[i].type == "checkbox") {
 			boxOnOff.push(chkBoxes[i].checked);
-    	}
-    	getValues(noteSliders[i]);
-		noteArray.push(freqVal);
+		}
+		if (noteSliders[i].type == "range") {
+    		getValues(noteSliders[i]);
+			noteArray.push(freqVal);
+		}
 	}
 	console.log("note freq: " + noteArray);
     console.log("note I/O: " + boxOnOff);
     
 }
-
+function resetSeqInputs() {
+	// reset the arrays
+	boxOnOff 				= [];
+	noteArray				= [];
+}
 
 
 // output span
@@ -52,62 +59,56 @@ var bpmVal,
 	noteSelected,
 	octSelected,
 	noteOctSelected,
-	freqVal;
+	freqVal,
+	pattern;
 
 // bind the start/stop control buttons
 startButton.onclick = function() {
-	// TODO "when the sequencer starts we send an array of note data to be played: "
-	// 		8 counts |on/off|on/off|on/off|on/off|on/off|on/off|on/off|on/off| 
-	//			=> checkbox array
-	//		8 counts |frq Hz|frq Hz|frq Hz|frq Hz|frq Hz|frq Hz|frq Hz|frq Hz|
-	//			=> get note+octave compare to JSON,
-	//				return frequency of given note,
-	//				pass it in our array
-	// 
+	// get I/0 array, note array;
+	checkSeqInputs();
+	// set pattern to play
+	var pattern = new Tone.Pattern(function(time, note){
+		if (osc_1_state == true) {
+			oscOne.triggerAttackRelease(note, 0.25);
+		}
+		if (osc_2_state == true) {
+			oscTwo.triggerAttackRelease(note, 0.25);
+		}
+	}, noteArray);
 
 	if (osc_1_state == true) {
-		checkSeqInputs();
-		oscillatorInputs();
-		var pattern = new Tone.Pattern(function(time, note){
-			oscOne.triggerAttackRelease(note, 0.25);
-		}, noteArray);
-
 		pattern.start(0);
 		Tone.Transport.start();
 		console.log("osc-1 start");
 	} else if (osc_1_state == false) {
-		pattern.stop();
-		Tone.Transport.stop();
-		console.log("osc-1 stopped");
+		console.log("osc-1 is off");
 	}
 
 	if (osc_2_state == true) {
-		oscTwo.start();
-		oscillatorInputs();
+		pattern.start(0);
+		Tone.Transport.start();
 		console.log("osc-2 start");
 	} else if (osc_2_state == false) {
-		oscTwo.stop();
-		console.log("osc-2 stopped");
+		console.log("osc-2 is off");
 	}
 }
 stopButton.onclick = function() {
 
-	//noteArray 	= [];
-	//chkBoxes 	= [];
+	//pattern.stop();
+	Tone.Transport.stop();
 
 	if (osc_1_state == true) {	
-		Tone.Transport.stop();
-		oscOneToggle.checked = false;
-		osc_1_state = false;
+		oscOneToggle.checked 	= false;
+		osc_1_state 			= false;
 		console.log("osc-1 stopped");
 
 	}
 	if (osc_2_state == true) {
-		oscTwo.stop();
-		oscTwoToggle.checked = false;
-		osc_2_state = false;
+		oscTwoToggle.checked 	= false;
+		osc_2_state 			= false;
 		console.log("osc-2 stopped");
 	}
+	resetSeqInputs();
 }
 
 // reset button

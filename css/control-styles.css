@@ -1,6 +1,16 @@
 .customize .p3 path {
-  fill: #F1DB42;
+    fill: #F1DB42;
 }
 .p3 path {
-            filter: url(#inner-shadow)
-        }
+    filter: url(#inner-shadow);
+}
+
+tone-oscilloscope {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  min-width: 150px;
+  height: 100px;
+  border-radius: 6px;
+  background-color: black;
+}

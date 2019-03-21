@@ -81,9 +81,10 @@
           <td>
             <input type="select" id="osc-1-waveselect" list="waveforms"></input>
             <datalist id="waveforms">
-              <option value="sine">
-              <option value="square">
-              <option value="saw">
+              <option value="sine"></option>
+              <option value="triangle"></option>
+              <option value="square"></option>
+              <option value="sawtooth"></option>
             </datalist>
           </td>
           <td>
@@ -92,8 +93,10 @@
         </tr>
         <tr height="130">
           <td colspan="2">
-            <div id="screen" class="screen">
-              <canvas id="graphic-one"></canvas>
+            <div id="screen-1" class="screen">
+              <tone-content>
+                <tone-oscilloscope></tone-oscilloscope>
+              </tone-content>
             </div>
           </td>  
         </tr>
@@ -156,9 +159,10 @@
           <td>
             <input type="select" id="osc-2-waveselect" list="waveforms"></input>
             <datalist id="waveforms">
-              <option value="sine">
-              <option value="square">
-              <option value="saw">
+              <option value="sine"></option>
+              <option value="triangle"></option>
+              <option value="square"></option>
+              <option value="sawtooth"></option>
             </datalist>
           </td>
           <td>
@@ -167,7 +171,7 @@
         </tr>
         <tr height="130">
           <td colspan="2">
-            <div id="screen" class="screen"></div>
+            <div id="screen-2" class="screen"></div>
           </td>  
         </tr>
         <tr><td colspan="2"><hr class="styled-hr"></td></tr>
@@ -507,6 +511,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.2/Tone.min.js"></script>-->
   <!-- development version for debugging -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.2/Tone.js"></script>
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
+  <script src="https://tonejs.github.io/examples/js/tonejs-ui.js"></script>
   <!-- JSON tuning files -->
   <script src="js/note-frequencies-440.json"></script>
   <script src="js/note-frequencies-432.json"></script>
