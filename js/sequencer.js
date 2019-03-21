@@ -77,24 +77,28 @@ startButton.onclick = function() {
 	}, noteArray);
 
 	if (osc_1_state == true) {
+		oscillatorInputs();
 		pattern.start(0);
 		Tone.Transport.start();
 		console.log("osc-1 start");
 	} else if (osc_1_state == false) {
+		pattern.stop();
 		console.log("osc-1 is off");
 	}
 
 	if (osc_2_state == true) {
+		oscillatorInputs();
 		pattern.start(0);
 		Tone.Transport.start();
 		console.log("osc-2 start");
 	} else if (osc_2_state == false) {
+		pattern.stop();
 		console.log("osc-2 is off");
 	}
 }
 stopButton.onclick = function() {
 
-	//pattern.stop();
+	//
 	Tone.Transport.stop();
 
 	if (osc_1_state == true) {	

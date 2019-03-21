@@ -157,9 +157,17 @@ oscTwoReset.onclick = function() {
 wavOneDisplay.innerHTML = waveTypeOne;
 wavTwoDisplay.innerHTML = waveTypeTwo;
 
-//oscOne.frequency.value 	= frequencyOne;
-//oscTwo.frequency.value	= frequencyTwo;
+// the two oscillators
+function oscillatorInputs() {
 
+	oscOne.oscillator.type				= waveTypeOne;
+	oscOne.frequency.value 	= frequencyOne;
+	oscOne.volume.value 	= gainOneVal;
+
+	oscTwo.type				= waveTypeTwo;
+	oscTwo.frequency.value	= frequencyTwo;
+	oscTwo.volume.value		= gainTwoVal;
+}
 
 var oscOne = new Tone.Synth().toMaster();
 var oscTwo = new Tone.Synth().toMaster();
