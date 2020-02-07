@@ -43,12 +43,12 @@
             <button id="osc-1-reset" class="btn-ctrl">reset</button>
           </td>
           <td>
-            I/0: <input type="checkbox" id="osc-1-toggle" class="osc-toggle" onclick="oscOnOff(this)"></input>
+            I/0: <input type="checkbox" id="osc-1-toggle" class="osc-toggle" checked="checked" onclick="oscOnOff(this)"></input>
           </td>
         </tr>
         <tr>
           <td>
-            freq: <input id="osc-1-freq-input" type="range" class="range-sliders" min="0" value="0" step="1"></input>
+            freq: <input id="osc-1-freq-input" type="range" class="range-sliders" min="0" value="48" step="1"></input>
           </td>
           <td width="70">
             <span id="osc-1-freq">Hz</span>   
@@ -56,7 +56,7 @@
         </tr>
         <tr>
           <td>
-            gain: <input id="osc-1-gain-input" type="range" class="range-sliders" list="decibel" min="0" max="7" value="4" step="1"></input>
+            gain: <input id="osc-1-gain-input" type="range" class="range-sliders" list="decibel" min="0" max="7" value="5" step="1"></input>
             <datalist id="decibel">
               <option>-Inf</option>
               <option>-30</option>
@@ -92,8 +92,11 @@
         </tr>
         <tr height="130">
           <td colspan="2">
-            <div id="screen" class="screen">
-              <canvas id="graphic-one"></canvas>
+            <div id="screen-1" class="screen">
+              <!--<canvas id="graphic-one"></canvas>-->
+              <tone-content>
+                <tone-oscilloscope></tone-oscilloscope>
+              </tone-content>
             </div>
           </td>  
         </tr>
@@ -133,7 +136,7 @@
         </tr>
         <tr>
           <td>
-            freq: <input id="osc-2-freq-input" type="range" class="range-sliders" min="0" value="0" step="1"></input>
+            freq: <input id="osc-2-freq-input" type="range" class="range-sliders" min="0" value="48" step="1"></input>
           </td>
           <td width="70">
             <span id="osc-2-freq">Hz</span>   
@@ -141,7 +144,7 @@
         </tr>
         <tr>
           <td>
-            gain: <input id="osc-2-gain-input" type="range" class="range-sliders" list="decibel" min="0" max="7" value="4" step="1"></input>
+            gain: <input id="osc-2-gain-input" type="range" class="range-sliders" list="decibel" min="0" max="7" value="5" step="1"></input>
           </td>
           <td width="70">
             <span id="osc-2-gain">Db</span>
@@ -167,7 +170,9 @@
         </tr>
         <tr height="130">
           <td colspan="2">
-            <div id="screen" class="screen"></div>
+            <div id="screen-2" class="screen">
+              <canvas id="graphic-two"></canvas>
+            </div>
           </td>  
         </tr>
         <tr><td colspan="2"><hr class="styled-hr"></td></tr>
@@ -494,13 +499,15 @@
   <!-- Add your site or application content here -->
   <p>Hello world! This is HTML5 Boilerplate.</p>
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <!-- <script src="libs/NexusUI.js"></script> -->
+  <script src="libs/tonejs-ui.js"></script>
   <!-- Do I really need GayQueery?? I dunno yet
   <script
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous">
   </script>
-   
+
   <script src="libs/jquery-ui.js"></script>
   <script src="js/require.js"></script>-->
   <!-- minimized version

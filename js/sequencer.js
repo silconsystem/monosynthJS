@@ -40,7 +40,7 @@ function checkSeqInputs() {
     boxOnOff = [];
 }
 
-
+document.querySelector("tone-oscilloscope").bind(oscOne);
 
 // output span
 var bpmOutput 		= document.getElementById('tempo');
@@ -66,10 +66,25 @@ startButton.onclick = function() {
 	//				pass it in our array
 	// 
 	//checkSeqInputs();
+	//mouse events
+
+	//schedule an event on the 16th measure
+	//var transport = Tone.Transport.schedule(function(time){
+		//do something with the time
+	//}, "16:0:0");
+
+	//document.querySelector('#start').addEventListener('mousedown', function() {
+	//  synthA.triggerAttack(noteArray)
+	//});
+	//document.querySelector('#stop').addEventListener('mouseup', function() {
+	//  synthA.triggerRelease()
+	//});
 	if (osc_1_state == true) {
 		oscOne.start();
 		oscillatorOne();
 		console.log("osc-1 start");
+
+		
 	} else if (osc_1_state == false) {
 		oscOne.stop();
 		console.log("osc-1 stopped");
@@ -86,8 +101,8 @@ startButton.onclick = function() {
 stopButton.onclick = function() {
 	if (osc_1_state == true) {
 		oscOne.stop();
-		oscOneToggle.checked = false;
-		osc_1_state = false;
+		oscOneToggle.checked = true;
+		osc_1_state = true;
 		console.log("osc-1 stopped");
 
 	}

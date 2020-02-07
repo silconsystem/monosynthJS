@@ -16,6 +16,7 @@
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    overflow: hidden;
 }
 
 /*
@@ -76,7 +77,7 @@ fieldset {
  */
 
 textarea {
-    resize: vertical;
+    resize: none;
 }
 
 /* ==========================================================================
@@ -126,6 +127,14 @@ textarea {
     #osc-2-toggle {
       display: inline;
       float: right;
+    }
+    #osc-1-freq,
+    #osc-2-freq {
+      overflow: hidden;
+      width: 45px;
+      height: 45px;
+      min-height: 45px;
+      min-width: 45px;
     }
 
     .vertical-range {
@@ -246,7 +255,8 @@ textarea {
       width: 512px;
     }
     
-    #screen {
+    #screen-1,
+    #screen-2 {
         float: left;
         margin: auto;
         margin-top: 20px; 
